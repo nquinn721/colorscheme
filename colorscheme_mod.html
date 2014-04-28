@@ -1,0 +1,171 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<div class='color-icon'>
+	<!--<span class='head'>I don't think we need this Label</span>-->
+	<div>
+		<span class='color color-small' color='black'></span>	
+		<span class='color color-small' color='#999'></span>	
+		<span class='color color-small' color='#222'></span>	
+		<span class='color color-small' color='#eee'></span>	
+		<span class='color color-small' color='#aaa'></span>	
+		<span class='color color-small' color='#555'></span>		
+		<span class='color color-small' color='#555'></span>
+	</div>
+</div>
+<div class='color-container'>
+	<span>
+		<span class='box'>
+			<span class='color' color='black'></span>	
+			<span class='color' color='#999'></span>	
+			<span class='color' color='#222'></span>	
+			<span class='color' color='#eee'></span>	
+			<span class='color' color='#aaa'></span>	
+			<span class='color' color='#555'></span>		
+			<span class='color' color='#555'></span>
+			<div>
+				Shades of Grey
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color' color='blue'></span>	
+			<span class='color' color='pink'></span>	
+			<span class='color' color='yellow'></span>	
+			<span class='color' color='brown'></span>	
+			<span class='color' color='black'></span>	
+			<span class='color' color='red'></span>		
+			<span class='color' color='green'></span>
+			<div>
+				Something crazy
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color' color='blue'></span>	
+			<span class='color' color='pink'></span>	
+			<span class='color' color='yellow'></span>	
+			<span class='color' color='brown'></span>	
+			<span class='color' color='black'></span>	
+			<span class='color' color='red'></span>		
+			<span class='color' color='green'></span>
+			<div>
+				Something crazy
+			</div>	
+		</span>
+	</span>
+	<span>
+		<span class='box'>
+			<span class='color' color='blue'></span>	
+			<span class='color' color='pink'></span>	
+			<span class='color' color='yellow'></span>	
+			<span class='color' color='brown'></span>	
+			<span class='color' color='black'></span>	
+			<span class='color' color='red'></span>		
+			<span class='color' color='green'></span>
+			<div>
+				New Flavor
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color' color='#115'></span>	
+			<span class='color' color='#447'></span>	
+			<span class='color' color='#009'></span>	
+			<span class='color' color='#559'></span>	
+			<span class='color' color='black'></span>	
+			<span class='color' color='blue'></span>		
+			<span class='color' color='white'></span>
+			<div>
+				Cool Breaze
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color' color='#734'></span>	
+			<span class='color' color='#811'></span>	
+			<span class='color' color='#900'></span>	
+			<span class='color' color='#855'></span>	
+			<span class='color' color='#511'></span>	
+			<span class='color' color='black'></span>		
+			<span class='color' color='white'></span>
+			<div>
+				Fire Ball
+			</div>	
+		</span>
+	</span>
+</div>
+
+
+<style type="text/css">
+	.color-icon{
+		font-size:12px;
+		text-align: center;
+		width: 220px;
+		cursor: pointer;
+	}
+	.color{
+		display: inline-block;
+		border-radius: 5px;
+		width: 11%;
+		height: 18px;
+		border: 1px solid #aaa;
+	}
+	.box{
+		display: block;
+		border: 1px solid #999;
+		padding: 5px;
+		margin: 5px 0;
+		border-radius: 5px;
+		background: white;
+		font-size: 10px;
+		color: #999;
+		cursor: pointer;
+	}
+	.color-small{
+		width: 8%;
+		height: 17px;
+	}
+	.color-container{
+		width: 350px;
+		height: 250px;
+		border: 1px solid black;
+		overflow-y:auto;
+		background: #eee;
+		display: none;
+		margin-top: 10px;
+	}
+	.color-container > span {
+	    width: 47%;
+	    display: inline-block;
+	    vertical-align: top;
+	}
+	.color-container > span:first-child{
+		padding-left: 5px;
+	}
+	.color-container > span:last-child{
+		margin-left: 5px;
+	}
+	.selected{
+		background: #C3C0C4;
+		color: white;
+	}
+</style>
+<script type="text/javascript">
+
+$('.box').on('click', function  () {
+	var colors = $(this).find('span');
+
+	$('.box').removeClass('selected');
+	$('.color-icon div').find('span').each(function (i, v) {
+		$(this).css('background', $(colors[i]).attr('color'));
+		
+	});
+	$(this).addClass('selected');
+});
+
+$('.color-icon').on('click', function () {
+	$('.color-container').slideToggle();
+})
+
+$('.color').each(function () {
+	$(this).css('background', $(this).attr('color'));
+})
+
+
+</script>

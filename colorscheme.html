@@ -1,0 +1,133 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div id='color-selector'>
+<div class='color-icon'>
+	<!--<span class='head'>I don't think we need this Label</span>-->
+	<div>
+		<span class='color color-small glossy' color='black'></span>	
+		<span class='color color-small glossy' color='#999'></span>	
+		<span class='color color-small glossy' color='#222'></span>	
+		<span class='color color-small glossy' color='#eee'></span>	
+		<span class='color color-small glossy' color='#aaa'></span>	
+		<span class='color color-small glossy' color='#555'></span>		
+		<span class='color color-small glossy' color='#555'></span>
+		<div class='arrow-down'>
+		</div>
+	</div>
+</div>
+<div class='color-container'>
+	<div class='arrow'>
+		<div class='inner-arrow'></div>
+	</div>
+	<span>
+		<span class='box'>
+			<span class='color glossy' color='black'></span>	
+			<span class='color glossy' color='#999'></span>	
+			<span class='color glossy' color='#222'></span>	
+			<span class='color glossy' color='#eee'></span>	
+			<span class='color glossy' color='#aaa'></span>	
+			<span class='color glossy' color='#555'></span>		
+			<span class='color glossy' color='#555'></span>
+			<div>
+				Shades of Grey
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color glossy' color='blue'></span>	
+			<span class='color glossy' color='pink'></span>	
+			<span class='color glossy' color='yellow'></span>	
+			<span class='color glossy' color='brown'></span>	
+			<span class='color glossy' color='black'></span>	
+			<span class='color glossy' color='red'></span>		
+			<span class='color glossy' color='green'></span>
+			<div>
+				Something crazy
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color glossy' color='blue'></span>	
+			<span class='color glossy' color='pink'></span>	
+			<span class='color glossy' color='yellow'></span>	
+			<span class='color glossy' color='brown'></span>	
+			<span class='color glossy' color='black'></span>	
+			<span class='color glossy' color='red'></span>		
+			<span class='color glossy' color='green'></span>
+			<div>
+				Something crazy
+			</div>	
+		</span>
+	</span>
+	<span>
+		<span class='box'>
+			<span class='color glossy' color='blue'></span>	
+			<span class='color glossy' color='pink'></span>	
+			<span class='color glossy' color='yellow'></span>	
+			<span class='color glossy' color='brown'></span>	
+			<span class='color glossy' color='black'></span>	
+			<span class='color glossy' color='red'></span>		
+			<span class='color glossy' color='green'></span>
+			<div>
+				New Flavor
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color glossy' color='#115'></span>	
+			<span class='color glossy' color='#447'></span>	
+			<span class='color glossy' color='#009'></span>	
+			<span class='color glossy' color='#559'></span>	
+			<span class='color glossy' color='black'></span>	
+			<span class='color glossy' color='blue'></span>		
+			<span class='color glossy' color='white'></span>
+			<div>
+				Cool Breaze
+			</div>	
+		</span>
+		<span class='box'>
+			<span class='color glossy' color='#734'></span>	
+			<span class='color glossy' color='#811'></span>	
+			<span class='color glossy' color='#900'></span>	
+			<span class='color glossy' color='#855'></span>	
+			<span class='color glossy' color='#511'></span>	
+			<span class='color glossy' color='black'></span>		
+			<span class='color glossy' color='white'></span>
+			<div>
+				Fire Ball
+			</div>	
+		</span>
+	</span>
+	<a href="#">More>></a>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+$('.box').on('click', function  () {
+	var colors = $(this).find('span');
+
+	$('.box').removeClass('selected');
+	$('.color-icon div').find('span').each(function (i, v) {
+		$(this).css('background', $(colors[i]).attr('color'));
+		
+	});
+	$(this).addClass('selected');
+	$('.color-container').hide();
+});
+
+$('.color-icon').on('click', function (e) {
+	$('.color-container').toggle();
+	e.stopPropagation();
+})
+$(document.body).on('click', function () {
+	$('.color-container').hide();
+})
+$('.color-container').on('click', function (e) {
+	e.stopPropagation();
+})
+$('.color').each(function () {
+	$(this).css('background', $(this).attr('color'));
+})
+
+
+</script>
